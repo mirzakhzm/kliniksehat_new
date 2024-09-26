@@ -17,42 +17,42 @@
               <option value="BPJS">BPJS</option>
               <option value="Umum">Umum</option>
             </select>
-            <a href="{{ route('tambahpasien') }}" class="btn btn-success"><i class="bi bi-person-fill-add"></i>Tambah Pasien</a>
+            <a href="{{ route('tambahpasien') }}" class="btn btn-success bi bi-person-fill-add">Tambah Pasien</a>
           </div>
 
           <table class="table table-striped">
             <thead>
-              <tr>
-                <th scope="col">Nama</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Status Pembayaran</th>
-                <th scope="col">Action</th>
-              </tr>
+                <tr>
+                    <th scope="col">Nama Pasien</th>
+                    <th scope="col">Jenis Pemeriksaan</th>
+                    <th scope="col">Pembayaran</th>
+                    <th scope="col">Status Pembayaran</th>
+                    <th scope="col">Keluhan</th>
+                    <th scope="col">Action</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>John Doe</td>
-                <td>Umum</td>
-                <td>Lunas</td>
-                <td>
-                    <button class="btn btn-info btn-sm">Lihat</button>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jane Smith</td>
-                <td>BPJS</td>
-                <td>Belum Lunas</td>
-                <td>
-                    <button class="btn btn-info btn-sm">Lihat</button>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <!-- Tambahkan lebih banyak baris data sesuai kebutuhan -->
+                @foreach ($pasiens as $pasien)
+                <tr>
+                    <td>{{ $pasien->nama_pasien}}</td>
+                    <td>{{ $pasien->pemeriksaan}}</td>
+                    <td>{{ $pasien->pembayaran}}</td>
+                    <td>{{ $pasien->status_pembayaran }}</td>
+                    <td>{{ $pasien->keluhan }}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm">Lihat</button>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                </tr>
+                @endforeach
+                @if($pasiens->isEmpty())
+                <tr>
+                    <td colspan="4" class="text-center">Tidak ada data pasien</td>
+                </tr>
+                @endif
             </tbody>
-          </table>
+        </table>
         </div>
       </div>
     </div>

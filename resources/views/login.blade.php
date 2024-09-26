@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
 <!-- Section: Design Block -->
 <section class="">
     <!-- Jumbotron -->
@@ -24,17 +30,18 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="card">
               <div class="card-body py-5 px-md-5">
-                <form>
+                <form action="{{ url('/api/login') }}" method="POST">
+                  @csrf <!-- Pastikan untuk menambahkan token CSRF -->
   
                   <!-- Email input -->
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="form3Example3" class="form-control" />
-                    <label class="form-label" for="form3Example3">User ID</label>
+                    <input type="text" name="username" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Username</label>
                   </div>
   
                   <!-- Password input -->
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="form3Example4" class="form-control" />
+                    <input type="password" name="password" id="form3Example4" class="form-control" />
                     <label class="form-label" for="form3Example4">Password</label>
                   </div>
   
@@ -42,7 +49,13 @@
                   <!-- Submit button -->
                   <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
                     Masuk
-                  </button>
+                  </button>                  
+                  </div>
+                  <div class="text-center">
+                  <!-- Regis button -->
+                  <p>Belum Punya Akun?
+                  <a class="cta-btn" href="{{ route('register') }}">Registrasi</a>
+                  </p>
                   </div>
                 </form>
               </div>
