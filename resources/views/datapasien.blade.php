@@ -17,7 +17,7 @@
               <option value="BPJS">BPJS</option>
               <option value="Umum">Umum</option>
             </select>
-            <button class="btn btn-success" data-toggle="modal" data-target="#addDataModal">Tambah Data Pasien</button>
+            <a href="{{ route('tambahpasien') }}" class="btn btn-success"><i class="bi bi-person-fill-add"></i>Tambah Pasien</a>
           </div>
 
           <table class="table table-striped">

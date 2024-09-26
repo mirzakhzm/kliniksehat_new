@@ -21,3 +21,11 @@ Route::get('/datapasien', function () {
 Route::get('/jenispemeriksaan', function () {
     return view('jenispemeriksaan');
 })->name('jenispemeriksaan');
+
+Route::get('/tambahpasien', function () {
+    return view('tambahpasien');
+})->name('tambahpasien');
+
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');

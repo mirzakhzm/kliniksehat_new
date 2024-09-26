@@ -24,9 +24,12 @@
   <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
   <!-- Main CSS File -->
   <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+  
+
 
 </head>
 
@@ -45,7 +48,7 @@
                 <li><a href="{{ route('dashboard') }}">Beranda</a></li>
                 <li><a href="{{ route('datapasien') }}">Data Pasien</a></li>
                 <li><a href="{{ route('jenispemeriksaan') }}">Jenis Pemeriksaan</a></li>
-                <li><a href="{{ route('jenispemeriksaan') }}">Profil</a></li>
+                <li><a href="{{ route('home') }}">keluar</a></li>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
@@ -57,7 +60,7 @@
 
   @yield('content')
 
-
+  <br>
   <footer id="footer" class="footer light-background">
 
     <div class="container footer-top">
@@ -106,6 +109,9 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
 </body>
 
