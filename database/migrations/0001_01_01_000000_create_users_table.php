@@ -12,12 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->user_id();
+            $table->id();
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable()-> now();
             $table->string('password');
-            $table->timestamp('created_at')->nullable()-> now();
+            $table->rememberToken();
+            $table->timestamps(); // Tambahkan kolom created_at dan updated_at
+        });
+
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
         });
     }
 

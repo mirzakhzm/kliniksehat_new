@@ -1,7 +1,8 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DashboardController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PemeriksaanController;
 
 Route::get('/', function () {
     return view('index');
@@ -17,9 +18,10 @@ Route::get('/register', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/jenispemeriksaan', function () {
-    return view('jenispemeriksaan');
-})->name('jenispemeriksaan');
+Route::get('/jenispemeriksaan', [PemeriksaanController::class, 'index'])->name('jenispemeriksaan');
+Route::post('/jenispemeriksaan', [PemeriksaanController::class, 'store'])->name('jenispemeriksaan.store');
+Route::put('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'update'])->name('jenispemeriksaan.update');
+Route::delete('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'destroy'])->name('jenispemeriksaan.destroy');
 
 Route::get('/tambahpasien', function () { //perhatikan
     return view('tambahpasien');

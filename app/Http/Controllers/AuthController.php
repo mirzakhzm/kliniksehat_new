@@ -27,7 +27,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password), // Hash password
             'email_verified_at' => now(), 
             'role' => $request->role, 
-            'created_at' => now()
+            // 'created_at' => now()
         ]);
 
         return response()->json([
