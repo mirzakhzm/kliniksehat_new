@@ -60,6 +60,9 @@ class AuthController extends Controller
             } elseif ($user->role === 'petugas') {
                 // Redirect ke halaman utama jika role adalah user
                 return redirect()->route('dashboard')->with('message', 'Login successful as Petugas!');
+            } elseif ($user->role === 'pasien') {
+                // Redirect ke halaman utama jika role adalah user
+                return redirect()->route('home')->with('message', 'Login successful as User!');
             } else {
                 // Penanganan jika role tidak sesuai (misal role tidak terdefinisi)
                 return response()->json(['message' => 'Unknown role'], 403);

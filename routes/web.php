@@ -29,14 +29,13 @@ Route::get('/editpasien', function () { //perhatikan
     return view('editpasien');
 })->name('editpasien');
 
-Route::post('/addpasien', [PasienController::class, 'store'])->name('pasien.store');
-Route::delete('/datapasien/pasien/{id}', [PasienController::class, 'destroy'])->name('datapasien.destroy');
+
 
 //Pasien
+Route::get('/tambahpasien', [PasienController::class, 'showForm'])->name('tambahpasien');
+Route::post('/addpasien', [PasienController::class, 'store'])->name('pasien.store');
 Route::get('/datapasien', [PasienController::class, 'index'])->name('datapasien');
-
-// Route::post('/adddatapasien', [PasienController::class, 'store'])->name('datapasien.store');
-Route::delete('/api/datapasien/{id}', [PasienController::class, 'destroy']);
+Route::delete('/datapasien/pasien/{id}', [PasienController::class, 'destroy'])->name('datapasien.destroy');
 
 //Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -48,8 +47,9 @@ Route::post('/superadmin/users', [AdminController::class, 'store'])->name('super
 Route::put('/superadmin/users/{id}', [AdminController::class, 'update'])->name('superadmin.update');
 Route::delete('/superadmin/users/{id}', [AdminController::class, 'destroy'])->name('superadmin.destroy');
 
+
 Route::get('/jenispemeriksaan', [PemeriksaanController::class, 'index'])->name('jenispemeriksaan');
-Route::post('/jenispemeriksaan', [PemeriksaanController::class, 'store'])->name('jenispemeriksaan.store');
+Route::post('/addjenispemeriksaan', [PemeriksaanController::class, 'store'])->name('jenispemeriksaan.store');
 Route::put('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'update'])->name('jenispemeriksaan.update');
-Route::delete('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'destroy'])->name('jenispemeriksaan.destroy');
+Route::delete('/deljenispemeriksaan/{id}', [PemeriksaanController::class, 'destroy'])->name('jenispemeriksaan.destroy');
 

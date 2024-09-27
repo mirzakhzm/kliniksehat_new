@@ -49,9 +49,9 @@
         <div class="form-group">
             <label for="pemeriksaan">Jenis Pemeriksaan</label>
             <select class="form-control" name="pemeriksaan" id="pemeriksaan" required>
-                <option value="pemeriksaan A">Pemeriksaan A</option>
-                <option value="pemeriksaan B">Pemeriksaan B</option>
-                <option value="pemeriksaan C">Pemeriksaan C</option>
+                @foreach ($pemeriksaans as $pemeriksaan)
+                    <option value="{{ $pemeriksaan->nama }}">{{ $pemeriksaan->nama }}</option>
+                @endforeach
             </select>
         </div>
 

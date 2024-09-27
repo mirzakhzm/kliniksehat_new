@@ -7,6 +7,7 @@ use App\Models\Pemeriksaan;
 
 class PemeriksaanController extends Controller
 {
+    
     // Menampilkan form dan daftar pemeriksaan
     public function index()
     {

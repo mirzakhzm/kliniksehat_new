@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Pasien;
+use App\Models\Pemeriksaan;
+use Illuminate\Http\Request;
 
 class PasienController extends Controller
 {
@@ -48,6 +49,11 @@ class PasienController extends Controller
         return view('datapasien', compact('pasiens'));
     }
 
+    public function showForm()
+    {
+        $pemeriksaans = Pemeriksaan::all(); // Contoh query untuk mengambil data pemeriksaan
+        return view('tambahpasien', compact('pemeriksaans')); // Kirim data ke view
+    }
 
     //Menghapus Pasien
     public function destroy($id)

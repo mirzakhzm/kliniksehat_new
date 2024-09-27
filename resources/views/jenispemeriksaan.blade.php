@@ -7,6 +7,7 @@
     <!-- Form Tambah Jenis Pemeriksaan -->
     <form action="{{ route('jenispemeriksaan.store') }}" method="POST">
         @csrf
+    
         <div class="form-group">
             <label for="nama">Nama Pemeriksaan</label>
             <input type="text" name="nama" class="form-control" id="nama" required>
@@ -23,7 +24,7 @@
         <thead>
             <tr>
                 <th>Nama</th>
-                <th>Harga</th> <!-- Kolom Harga -->
+                <th>Harga</th> 
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -43,11 +44,18 @@
                     </form>
 
                     <!-- Form Hapus Pemeriksaan -->
-                    <form action="{{ route('jenispemeriksaan.destroy', $pemeriksaan->id) }}" method="POST" style="display: inline;">
+
+                    <form action="{{ route('jenispemeriksaan.destroy', ['id' => $pemeriksaan->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    
+                    {{-- <form action="{{ route('jenispemeriksaan.destroy', $pemeriksaan->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
+                    </form> --}}
                 </td>
             </tr>
             @endforeach
