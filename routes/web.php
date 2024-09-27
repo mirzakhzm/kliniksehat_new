@@ -1,8 +1,9 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
@@ -46,3 +47,9 @@ Route::get('/superadmin/users', [AdminController::class, 'index'])->name('supera
 Route::post('/superadmin/users', [AdminController::class, 'store'])->name('superadmin.store');
 Route::put('/superadmin/users/{id}', [AdminController::class, 'update'])->name('superadmin.update');
 Route::delete('/superadmin/users/{id}', [AdminController::class, 'destroy'])->name('superadmin.destroy');
+
+Route::get('/jenispemeriksaan', [PemeriksaanController::class, 'index'])->name('jenispemeriksaan');
+Route::post('/jenispemeriksaan', [PemeriksaanController::class, 'store'])->name('jenispemeriksaan.store');
+Route::put('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'update'])->name('jenispemeriksaan.update');
+Route::delete('/jenispemeriksaan/{id}', [PemeriksaanController::class, 'destroy'])->name('jenispemeriksaan.destroy');
+
