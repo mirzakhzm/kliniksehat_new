@@ -15,10 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable()-> now();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps(); // Tambahkan kolom created_at dan updated_at
         });
 
         Schema::create('sessions', function (Blueprint $table) {
@@ -28,6 +25,8 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+            $table->string('role');
+
         });
     }
 

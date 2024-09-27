@@ -16,17 +16,22 @@
                     
                     <div data-mdb-input-init class="form-outline mb-4">
                       <input type="text" name="username" id="form3Example3" class="form-control" />
-                      <label class="form-label" for="form3Example3">Username</label>
+                      <label class="form-label" for="username">Username</label>
                     </div> 
-                  <!-- Email input -->
-                  <div data-mdb-input-init class="form-outline mb-4">
+
+                    <div data-mdb-input-init class="form-outline mb-4">
                     <input type="email" name="email" id="form3Example3" class="form-control" />
-                    <label class="form-label" for="form3Example3">email</label>
+                    <label class="form-label" for="email">Email</label>
+                  </div>     
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" name="role" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="role">Role</label>
                   </div>                    
                   
                   <div data-mdb-input-init class="form-outline mb-4">
                     <input type="password" name="password" id="form3Example4" class="form-control" />
-                    <label class="form-label" for="form3Example4">Password</label>
+                    <label class="form-label" for="password">Password</label>
                   </div>
 
                   <div class="text-center">

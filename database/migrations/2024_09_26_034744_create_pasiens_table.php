@@ -20,10 +20,7 @@ return new class extends Migration
             $table->bigInteger('kontak'); // Kontak sebagai bigInteger
             $table->string('keluhan')->nullable();
             $table->string('pemeriksaan')->nullable();
-            $table->string('pembayaran')->nullable();
-            $table->string('status_pembayaran');
-            $table->timestamp('created_at')->nullable()-> now();
-            $table->timestamp('updated_at')->nullable()-> now();
+            $table->string('jenis_pasien')->nullable();
         });
     
     }
