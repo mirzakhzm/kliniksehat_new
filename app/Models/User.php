@@ -16,6 +16,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     public $timestamps = false; // Disable timestamps
+
     protected $fillable = [
         'username',
         'email',
@@ -40,8 +43,11 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function hasRole($role)
+    {
+        return $this->role === $role;
     }
 }

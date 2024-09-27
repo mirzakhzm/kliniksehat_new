@@ -24,9 +24,7 @@
             <thead>
                 <tr>
                     <th scope="col">Nama Pasien</th>
-                    <th scope="col">Jenis Pemeriksaan</th>
-                    <th scope="col">Pembayaran</th>
-                    <th scope="col">Status Pembayaran</th>
+                    <th scope="col">Jenis Pasien</th>
                     <th scope="col">Keluhan</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -35,15 +33,15 @@
                 @foreach ($pasiens as $pasien)
                 <tr>
                     <td>{{ $pasien->nama_pasien}}</td>
-                    <td>{{ $pasien->pemeriksaan}}</td>
-                    <td>{{ $pasien->pembayaran}}</td>
-                    <td>{{ $pasien->status_pembayaran }}</td>
+                    <td>{{ $pasien->jenis_pasien}}</td>
                     <td>{{ $pasien->keluhan }}</td>
                     <td>
-                        <button class="btn btn-info btn-sm">Lihat</button>
-                        <button class="btn btn-primary btn-sm">Edit</button>
-                        <button class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
+                    <form action="{{ route('datapasien.destroy', $pasien->id) }}" method="POST" style="display: inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger">Hapus</button>
+                  </form>
+                </td>
                 </tr>
                 @endforeach
                 @if($pasiens->isEmpty())
@@ -56,6 +54,5 @@
         </div>
       </div>
     </div>
-  </section><!-- /Data Table Section -->
-  
+  </section>
 @endsection

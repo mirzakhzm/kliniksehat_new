@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class AuthController extends Controller
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'required|string|min:',
+            'role' => 'required|string|max:8',
         ]);
 
         // Simpan pengguna ke database
@@ -25,9 +26,7 @@ class AuthController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password), // Hash password
-            'email_verified_at' => now(), 
             'role' => $request->role, 
-            'created_at' => now()
         ]);
 
         return response()->json([
@@ -56,10 +55,10 @@ class AuthController extends Controller
             // Cek role pengguna
             if ($user->role === 'admin') {
                 // Redirect ke halaman dashboard jika role adalah admin
-                return redirect()->route('dashboard')->with('message', 'Login successful as Admin!');
-            } elseif ($user->role === 'user') {
+                return redirect()->route('superadmin')->with('message', 'Login successful as Admin!');
+            } elseif ($user->role === 'petugas') {
                 // Redirect ke halaman utama jika role adalah user
-                return redirect()->route('home')->with('message', 'Login successful as User!');
+                return redirect()->route('dashboard')->with('message', 'Login successful as Petugas!');
             } else {
                 // Penanganan jika role tidak sesuai (misal role tidak terdefinisi)
                 return response()->json(['message' => 'Unknown role'], 403);
@@ -69,6 +68,7 @@ class AuthController extends Controller
         // Jika login gagal, tampilkan pesan error
         return response()->json(['message' => 'Invalid credentials'], 401);
     }
+
+    // Mengubah role user
+  
 }
-
-
